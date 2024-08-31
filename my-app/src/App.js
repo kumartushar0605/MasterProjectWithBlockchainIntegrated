@@ -6,7 +6,15 @@ import TechReg from './Components/TechReg';
 import StuLogin from './Components/StuLogin';
 import TeacherLogin from './Components/TeacherLogin';
 import { Context } from './index';
+import Header from './Components/Header';
+
 import axios from 'axios';
+import ContactUs from './Components/ContactUs';
+import About from './Components/About';
+import Contests from './Components/Contests';
+import HeaderT from './Components/HeaderT';
+
+
 import { useContext ,useEffect} from 'react';
 
 
@@ -62,6 +70,14 @@ function App() {
       <Route path='/res' element={<Register/>}/>
       <Route path='/ress' element={<TechReg/>}/>
       <Route path='/' element={<Intro/>}/>
+      <Route path='/about' element={<About/>}/>
+      <Route path='/con' element={<Contests/>}/>
+
+      <Route path='/contact' element={<ContactUs/>}/>
+      
+
+
+
      
     </Routes>
    </Router>
