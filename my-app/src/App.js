@@ -7,8 +7,21 @@ import StuLogin from './Components/StuLogin';
 import TeacherLogin from './Components/TeacherLogin';
 import { Context } from './index';
 import Header from './Components/Header';
+import RateFix from './Components/RateFix';
+import StuInput from './Components/StuInput';
+import HeaderT from './Components/HeaderT';
+import Header from './Components/Header';
 
 import axios from 'axios';
+import Page from './Components/Page';
+import Home from './Components/Home';
+import TechHome from './Components/TechHome';
+import GlobalS from './Components/GlobalS';
+import GlobalT from './Components/GlobalT';
+import Details2 from './Components/Details2';
+
+
+
 import ContactUs from './Components/ContactUs';
 import About from './Components/About';
 import Contests from './Components/Contests';
@@ -72,6 +85,20 @@ function App() {
       <Route path='/' element={<Intro/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='/con' element={<Contests/>}/>
+      <Route path='/page' element={<Page/>}/>
+      <Route path='/home2' element={<><HeaderT/><TechHome/></>}/>
+      <Route path="/home" element={<><Header/><Home/></>}/>
+      <Route path='/globals' element={<GlobalS/>}/>
+      <Route path='/globalt' element={<GlobalT/>}/>
+      <Route path='/rate' element={<RateFix/>}/>
+
+      <Route path="/det2" element={<Details2/>}/>
+      <Route path='/stud' element={<StuInput/>}/>
+
+
+
+
+
 
       <Route path='/contact' element={<ContactUs/>}/>
       
