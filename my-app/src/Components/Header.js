@@ -63,6 +63,8 @@ const Header = () => {
           </Button>
           <Button as={Link} to="/globals" variant="ghost" colorScheme="blue" fontWeight="medium">
             Global
+          </Button><Button as={Link} to="/blog" variant="ghost" colorScheme="blue" fontWeight="medium">
+            Community
           </Button>
         </HStack>
       </Flex>

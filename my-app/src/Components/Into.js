@@ -26,14 +26,10 @@ const Intro = () => {
   const { isAuthenticated, TeIsAuthenticated } = useContext(Context);
   const navigate = useNavigate();
   const [showButtons, setShowButtons] = useState(false);
-  const [showStudentOptions, setShowStudentOptions] = useState(false);
+  const [showLearnerOptions, setShowLearnerOptions] = useState(false);
 
   const handleGetStarted = () => {
     setShowButtons(true);
-  };
-
-  const handleCollegeStudent = () => {
-    setShowStudentOptions(true);
   };
 
   const teacher = () => {
@@ -45,17 +41,23 @@ const Intro = () => {
     }
   };
 
-  const student = () => {
-    const stu = "student";
+  const handleLearner = () => {
+    setShowLearnerOptions(true);
+  };
+
+  const collegeStudent = () => {
+    const stu = "college_student";
     if (isAuthenticated) {
       navigate('/home');
     } else {
       navigate('/res', { state: { stu } });
     }
   };
-const school = ()=>{
-  navigate("")
-}
+
+  const schoolStudent = () => {
+   navigate("/subs")
+  };
+
   return (
     <Box
       w="100vw"
@@ -120,7 +122,7 @@ const school = ()=>{
             </Button>
           )}
 
-          {showButtons && !showStudentOptions && (
+          {showButtons && !showLearnerOptions && (
             <ScaleFade initialScale={0.9} in={showButtons}>
               <VStack spacing={4}>
                 <Button
@@ -133,44 +135,7 @@ const school = ()=>{
                   as={motion.div}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={handleCollegeStudent}
-                  boxShadow="0 0 20px rgba(0, 0, 255, 0.7)"
-                >
-                  College Student
-                </Button>
-                <Button
-                  colorScheme="pink"
-                  size="lg"
-                  variant="solid"
-                  width="220px"
-                  transition="all 0.3s ease"
-                  _hover={{ bg: 'pink.600', color: 'white' }}
-                  as={motion.div}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={school}
-                  boxShadow="0 0 20px rgba(255, 105, 180, 0.7)"
-                >
-                  School Student
-                </Button>
-              </VStack>
-            </ScaleFade>
-          )}
-
-          {showStudentOptions && (
-            <ScaleFade initialScale={0.9} in={showStudentOptions}>
-              <VStack spacing={4}>
-                <Button
-                  colorScheme="blue"
-                  size="lg"
-                  variant="solid"
-                  width="220px"
-                  transition="all 0.3s ease"
-                  _hover={{ bg: 'blue.600', color: 'white' }}
-                  as={motion.div}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={student}
+                  onClick={handleLearner}
                   boxShadow="0 0 20px rgba(0, 0, 255, 0.7)"
                 >
                   Learner
@@ -188,7 +153,44 @@ const school = ()=>{
                   onClick={teacher}
                   boxShadow="0 0 20px rgba(255, 105, 180, 0.7)"
                 >
-                  Freelancing Tutor
+                  Freelancing Tutor 
+                </Button>
+              </VStack>
+            </ScaleFade>
+          )}
+
+          {showLearnerOptions && (
+            <ScaleFade initialScale={0.9} in={showLearnerOptions}>
+              <VStack spacing={4}>
+                <Button
+                  colorScheme="green"
+                  size="lg"
+                  variant="solid"
+                  width="220px"
+                  transition="all 0.3s ease"
+                  _hover={{ bg: 'green.600', color: 'white' }}
+                  as={motion.div}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={collegeStudent}
+                  boxShadow="0 0 20px rgba(0, 255, 0, 0.7)"
+                >
+                  College Student
+                </Button>
+                <Button
+                  colorScheme="teal"
+                  size="lg"
+                  variant="solid"
+                  width="220px"
+                  transition="all 0.3s ease"
+                  _hover={{ bg: 'teal.600', color: 'white' }}
+                  as={motion.div}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={schoolStudent}
+                  boxShadow="0 0 20px rgba(0, 255, 255, 0.7)"
+                >
+                  School Student
                 </Button>
               </VStack>
             </ScaleFade>
@@ -205,8 +207,6 @@ const school = ()=>{
           animation={`${colorChange} 5s infinite linear`}
         />
       </HStack>
-      
-
     </Box>
   );
 };

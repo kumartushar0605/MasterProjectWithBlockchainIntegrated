@@ -3,6 +3,7 @@ import Header from './Components/Header';
 import Home from './Components/Home';
 import Register from './Components/Register';
 import {BrowserRouter as Router, Routes,Route} from "react-router-dom"
+import Chapter from './Components/Chapter';
 import TechDett from './Components/TechDett';
 import RateFix from './Components/RateFix';
 import TechHome from './Components/TechHome';
@@ -15,6 +16,7 @@ import TeacherLogin from './Components/TeacherLogin';
 import { Context } from './index';
 import axios from 'axios';
 import { useContext ,useEffect} from 'react';
+import Meeting from './Components/Meeting';
 import PaymentStatus from './Components/PaymentStatus';
 import HeaderT from './Components/HeaderT';
 import GlobalS from './Components/GlobalS';
@@ -27,6 +29,8 @@ import Page from './Components/Page';
 import ContactUs from './Components/ContactUs';
 import ProfileT from './Components/ProfileT';
 import ProfileS from './Components/ProfileS';
+import Subscription from './Components/Subscription';
+import Blog from './Components/Blog';
 
 function App() {
   const {studentt,setStudentt,teacherr,setTeacherr,setIsAuthenticated,setTeIsAuthenticated} = useContext(Context);
@@ -87,6 +91,7 @@ function App() {
       <Route path='/res' element={<Register/>}/>
       <Route path='/ress' element={<TechReg/>}/>
       <Route path='/accept' element={<Accept/>}/>
+      <Route path='/meet' element={<Meeting/>}/>
       <Route path='/payStatus' element={<PaymentStatus/>}/>
       <Route path='/globals' element={<GlobalS/>}/>
       <Route path='/globalt' element={<GlobalT/>}/>
@@ -97,6 +102,8 @@ function App() {
       <Route path='/contact' element={<ContactUs/>}/>
       <Route path='/profileT' element={<ProfileT/>}/>
       <Route path='/profileS' element={<ProfileS/>}/>
+      <Route path='/subs' element={<Subscription/>}/>
+      <Route path='/blog' element={<Blog/>}/>
 
       {/* <Route path='/' element={<Details2/>}/> */}
     </Routes>
