@@ -191,3 +191,60 @@ export const getMyProfile = async(req,res) =>{
     user:req.user
   })
 }
+
+
+export const address = async(req,res)=>{
+  console.log("hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
+  const {email}= req.params;
+  try{
+     const user = await TEAC.findOne({email});
+    console.log(user)
+     res.json(user)
+     
+  }catch(error){
+console.log(error)
+  }
+} 
+
+export const payment = async(req,res)=>{
+  const {email}= req.params;
+  try{
+     const user = await TEAC.findOne({email});
+      user.payment="YES";
+      await user.save();
+      res.status(201).json({message:"payment Done"})
+     
+  }catch(error){
+console.log(error)
+  }
+} 
+export const sec = async(req,res)=>{
+  const {email}= req.params;
+  const {secretCode} = req.body;
+  try{
+     const user = await TEAC.findOne({email});
+      user.secretCode=secretCode
+      user.payment="NO";
+      await user.save();
+      res.status(201).json({message:"secret code submiited"})
+     
+  }catch(error){
+console.log(error)
+  }
+} 
+
+export const deletee = async(req,res)=>{
+  const {email,_id,readyId} = req.body;
+  try{
+    console.log(_id);
+    console.log(readyId);
+     const doubt = await DOU.deleteOne({_id});
+     const ready = await READ.deleteOne({_id:readyId});
+     const user = await TEAC.findOne({email});
+     user.secretCode="L";
+     await user.save();
+     res.status(201).json({message:"data deleted succesfully"})
+  }catch(error){
+    console.log(error)
+  }
+}
